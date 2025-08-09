@@ -1,21 +1,15 @@
+import { Avatar } from "../Avatar";
+import { Comment } from "../Comment";
 import styles from "./Post.module.css";
 
-interface PostProps {
-  author: string;
-  content: string;
-}
-
-export function Post({ author, content }: PostProps) {
+export function Post() {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            className={styles.avatar}
-            src="https://github.com/Marvinx9.png"
-          />
+          <Avatar src="https://github.com/angelicaweiler.png" />
           <div className={styles.authorInfo}>
-            <strong>Afrânio Nunes</strong>
+            <strong>Angélica Weiler</strong>
             <span>Web Developer</span>
           </div>
         </div>
@@ -26,15 +20,29 @@ export function Post({ author, content }: PostProps) {
 
       <div className={styles.content}>
         <p>Fala galeraa 👋 </p>
-        <p>Acabei de subir mais um projeto no meu portifa. É um</p>
-        projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é
-        DoctorCare
+        <p>Acabei de subir mais um projeto no meu portfólio. É um</p>
+        projeto que fiz no com React, muito legal. O nome do projeto é
+        MarvinCare
         <p>
-          👉<a href="#"> jane.design/doctorcare</a>
+          👉 - <a href="#">jane.design/doctorcare</a>
         </p>
         <p>
-          <a>#novoprojeto #nlw #rocketseat</a>
+          <a href="#">#novoprojeto</a> <a href="#">#front-end</a>{" "}
+          <a href="#">#react</a>
         </p>
+      </div>
+
+      <form className={styles.commentForm}>
+        <strong>Deixe seu feedback</strong>
+        <textarea placeholder="Deixe seu comentário" />
+        <footer>
+          <button type="submit">Publicar</button>
+        </footer>
+      </form>
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
       </div>
     </article>
   );
