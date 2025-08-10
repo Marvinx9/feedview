@@ -2,35 +2,38 @@ import { Avatar } from "../Avatar";
 import { Comment } from "../Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+type AuthorData = {
+  avatarUrl: string;
+  name: string;
+  role: string;
+};
+
+type PostType = {
+  author: AuthorData;
+  content: string;
+  publishedAt: Date;
+};
+
+export function Post({ author, content, publishedAt }: PostType) {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/angelicaweiler.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Angélica Weiler</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
-        <time title="11 de agosto às 08:13h" dateTime="2025-08-11 08:13:32">
+        <time
+          title="11 de agosto às 08:13h"
+          dateTime={publishedAt.toISOString()}
+        >
           Publicado há 1h
         </time>
       </header>
 
-      <div className={styles.content}>
-        <p>Fala galeraa 👋 </p>
-        <p>Acabei de subir mais um projeto no meu portfólio. É um</p>
-        projeto que fiz no com React, muito legal. O nome do projeto é
-        MarvinCare
-        <p>
-          👉 - <a href="#">jane.design/doctorcare</a>
-        </p>
-        <p>
-          <a href="#">#novoprojeto</a> <a href="#">#front-end</a>{" "}
-          <a href="#">#react</a>
-        </p>
-      </div>
+      <div className={styles.content}>{content}</div>
 
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>

@@ -10,6 +10,7 @@
 
 .content {
   line-height: 1.6;
+  white-space: pre-line;
   color: var(--gray-300);
   margin-top: 1.5rem;
 }
