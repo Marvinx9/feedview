@@ -4,19 +4,7 @@ import { SideBar } from "./components/Sidebar";
 
 import styles from "./App.module.css";
 import "./global.css";
-
-type AuthorData = {
-  avatarUrl: string;
-  name: string;
-  role: string;
-};
-
-type PostType = {
-  id: number;
-  author: AuthorData;
-  content: string;
-  publishedAt: Date;
-};
+import type { PostType } from "./types";
 
 const posts: PostType[] = [
   {
@@ -37,6 +25,24 @@ const posts: PostType[] = [
     #novoprojeto #front-end #react`,
     publishedAt: new Date("2025-08-01 20:00:00"),
   },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/evanildo-silva.png",
+      name: "Evanildo Silva",
+      role: "Full-Stack nodejs",
+    },
+    content: `Olá Rede!
+
+    Gostaria de compartilhar com vocês um novo projeto que venho desenvolvendo.
+
+    O projeto simula uma barbearia com todas as funcionalidades sugeridas por vocês no meu post anterior, agradeço todos vocês por essa ajuda!
+
+    👉 - evanildo.dev/evasbarb
+
+    #novoprojeto #front-end #full-stack`,
+    publishedAt: new Date("2025-08-01 20:00:00"),
+  },
 ];
 
 export function App() {
@@ -49,6 +55,7 @@ export function App() {
           {posts.map((post) => {
             return (
               <Post
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
