@@ -1,69 +1,97 @@
-# React + TypeScript + Vite
+# Feed View
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida com React, TypeScript e Vite para simular uma interface de feed social. O projeto apresenta posts, perfil do usuário, comentários, curtidas e remoção de feedbacks, com uma estrutura componentizada e estilos isolados por CSS Modules.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Listagem de posts com autor, cargo, avatar, conteúdo e data relativa.
+- Conversão visual de hashtags no conteúdo dos posts.
+- Formulário para adicionar comentários em cada publicação.
+- Validação de comentário obrigatório.
+- Remoção de comentários.
+- Contador de curtidas por comentário.
+- Sidebar com informações de perfil.
+- Layout responsivo para desktop e dispositivos móveis.
 
-## Expanding the ESLint configuration
+## Tecnologias
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- CSS Modules
+- date-fns
+- Phosphor React
+- ESLint
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Pré-requisitos
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Antes de começar, certifique-se de ter instalado:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 20 ou superior
+- npm
+
+## Como executar
+
+Clone o repositório e instale as dependências:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Inicie o ambiente de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Depois, acesse a URL exibida no terminal pelo Vite.
+
+## Scripts disponíveis
+
+```bash
+npm run dev
+```
+
+Executa a aplicação em modo de desenvolvimento.
+
+```bash
+npm run build
+```
+
+Gera a versão de produção, executando a validação TypeScript antes do build do Vite.
+
+```bash
+npm run preview
+```
+
+Serve localmente a versão gerada pelo build.
+
+```bash
+npm run lint
+```
+
+Executa a análise estática do código com ESLint.
+
+## Estrutura do projeto
+
+```text
+src/
+  components/
+    Avatar/
+    Comment/
+    Header/
+    Post/
+    Sidebar/
+  App.tsx
+  global.css
+  main.tsx
+  types.ts
+```
+
+## Componentes principais
+
+- `Header`: exibe a identidade visual da aplicação.
+- `Sidebar`: apresenta informações do usuário e ação de edição de perfil.
+- `Post`: renderiza publicações, datas, hashtags e formulário de comentários.
+- `Comment`: controla exibição, curtidas e exclusão de comentários.
+- `Avatar`: componente reutilizável para imagens de perfil.

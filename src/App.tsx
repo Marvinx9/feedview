@@ -28,8 +28,8 @@ const posts: PostType[] = [
   {
     id: 2,
     author: {
-      avatarUrl: "https://github.com/evanildo-silva.png",
-      name: "Evanildo Silva",
+      avatarUrl: "https://github.com/zcyc.png",
+      name: "Zé Cícero",
       role: "Full-Stack nodejs",
     },
     content: `Olá Rede!
@@ -38,7 +38,7 @@ const posts: PostType[] = [
 
     O projeto simula uma barbearia com todas as funcionalidades sugeridas por vocês no meu post anterior, agradeço todos vocês por essa ajuda!
 
-    👉 - evanildo.dev/evasbarb
+    👉 - zécicero.dev/cicerobarb
 
     #novoprojeto #front-end #full-stack`,
     publishedAt: new Date("2025-08-01 20:00:00"),
